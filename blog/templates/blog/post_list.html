@@ -1,53 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
 <html>
-    <head><b>자화상 - 윤동주</b></head>
-    <hr size="10" align="left" width=100% noshade="noshade"></hr>
-        <section>
-            <article>
-                <center>
-                    <h1>&lt; 자화상 &gt;</h1>
-                </center>
-            </article>
-            <article>
-                <center>
-                    <h1>윤동주</h1>
-                </center>
-            </article>
-            <hr size="2" align="center" width=50% noshade="noshade"></hr>
-        </section>
-        <section>
-            <h4>산모퉁이를 돌아 논가 외딴 우물을 홀로 찾아가선 가만히 들여다봅니다.</h4>
-            <h4>우물 속에는 달이 밝고 구름이 흐르고 하늘이 펼치고 파아란 바람이 불고 가을이 있습니다.</h4>
-            <h4>그리고 한 사나이가 있습니다.</h4>
-            <h4>어쩐지 그 사나이가 미워져 돌아갑니다.</h4>
-            <h4>돌아가다 생각하니 그 사나이가 가엾어집니다. 도로 가 들여다보니 사나이는 그대로 있습니다.</h4> 
-            <h4>다시 그 사나이가 미워져 돌아갑니다.</h4>
-            <h4>돌아가다 생각하니 그 사나이가 그리워집니다.</h4>
-            <h4>우물 속에는 달이 밝고 구름이 흐르고 하늘이 펼치고 파아란 바람이 불고 가을이 있고 추억처럼 사나이가 있습니다.</h4>
-        </section>
-        <section>
-            <article>
-                <h2>윤동주 시인의 다른 시</h2>
-                <ul>
-                    <li>서시</li>
-                    <li>자화상</li>
-                    <li>눈오는 지도</li>
-                    <li>새로운 길</li>
-                    <li>길</li>
-                    <li>별 헤는 밤</li>
-                    <li>쉽게 씌어진 시</li>
-                    <li>참회록</li>
-                    <li>못 자는 밤</li>
-                    <li>비오는 밤</li>
-                    <li>소낙비</li> 
-                </ul>
-            </article>
-        </section>
+    <head>
+        <title>Django Girls blog</title>
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}?after">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Django Girls Blog</a></h1>
+        </div>
+        ​<div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for post in posts %}
+                    <div class="post">
+                        <div class="date">
+                            <p>published: {{ post.published_date }}</p>
+                        </div>
+                        <h1><a href="">{{ post.title }}</a></h1>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>    
+        </div>
     </body>
-    <hr size="1" align="left" width=100% noshade="noshade"></hr>
-    <footer>
-        <small>
-            &nbsp;&nbsp;&copy;웹서비스프로그래밍&nbsp;&nbsp;
-            &nbsp;&nbsp;&reg;2023
-        </small>
-    </footer>
 </html>
